@@ -4,44 +4,44 @@
 #include<time.h>
 #include<cmath>
 #include<fstream>
-int imax;  //×î´óÊı
-int numofcalculate; //ËãÊ½ÊıÁ¿
-int brackets; //ÊÇ·ñÓĞÀ¨ºÅ
-int decimal;  //ÊÇ·ñÓĞĞ¡Êı
-char op[4] = { '+','-','*','/' };		  //ÔËËã·û
-int ope;      //ÓÃ»§ÊäÈëµÄÔËËã·û
-int outputform;//Êä³öĞÎÊ½
-void  integer_Cal();//Éú³ÉÕûÊıËÄÔòÔËËã
-void decimal_Cal();//Éú³ÉĞ¡ÊıËÄÔòÔËËã
+int imax;  //æœ€å¤§æ•°
+int numofcalculate; //ç®—å¼æ•°é‡
+int brackets; //æ˜¯å¦æœ‰æ‹¬å·
+int decimal;  //æ˜¯å¦æœ‰å°æ•°
+char op[4] = { '+','-','*','/' };		  //è¿ç®—ç¬¦
+int ope;      //ç”¨æˆ·è¾“å…¥çš„è¿ç®—ç¬¦
+int outputform;//è¾“å‡ºå½¢å¼
+void  integer_Cal();//ç”Ÿæˆæ•´æ•°å››åˆ™è¿ç®—
+void decimal_Cal();//ç”Ÿæˆå°æ•°å››åˆ™è¿ç®—
 using namespace std;
-ofstream outfile;//Êı¾İĞ´ÈëÎÄ¼ş
+ofstream outfile;//æ•°æ®å†™å…¥æ–‡ä»¶
 int main()
 {
-	cout << "---Ğ¡Ñ§ÉúËÄÔòÔËËãÁ·Ï°ÏµÍ³---" << endl;
+	cout << "---å°å­¦ç”Ÿå››åˆ™è¿ç®—ç»ƒä¹ ç³»ç»Ÿ---" << endl;
 	cout << "********************** " << endl;
-	cout << " ¢Ù:ÇëÊäÈëËãÊ½ÊıÁ¿: " << endl;
+	cout << " â‘ :è¯·è¾“å…¥ç®—å¼æ•°é‡: " << endl;
 	cin >> numofcalculate;
-	cout << " ¢Ú: ÇëÊäÈë×î´óÊı: " << endl;
+	cout << " â‘¡: è¯·è¾“å…¥æœ€å¤§æ•°: " << endl;
 	cin >> imax;
-	cout << " ¢Û:ÇëÊäÈëÔËËã·û: " << endl;
-	cout << " 1´ú±í+ 2´ú±í- 3´ú±í* 4´ú±í/ ÆäËû´ú±íËæÒâ:" << endl;
+	cout << " â‘¢:è¯·è¾“å…¥è¿ç®—ç¬¦: " << endl;
+	cout << " 1ä»£è¡¨+ 2ä»£è¡¨- 3ä»£è¡¨* 4ä»£è¡¨/ å…¶ä»–ä»£è¡¨éšæ„:" << endl;
 	cin >> ope;
-	cout << " ¢Ü:ÇëÑ¡ÔñÊı×ÖÀàĞÍ: " << endl;
-	cout << " 1´ú±íÕûÊı 2´ú±íĞ¡Êı" << endl;
+	cout << " â‘£:è¯·é€‰æ‹©æ•°å­—ç±»å‹: " << endl;
+	cout << " 1ä»£è¡¨æ•´æ•° 2ä»£è¡¨å°æ•°" << endl;
 	cin >> decimal;
-	cout << " ¢İ:ÇëÑ¡ÔñÊÇ·ñĞèÒªÀ¨ºÅ " << endl;
-	cout << " 1´ú±í²»ĞèÒªÀ¨ºÅ 2´ú±íĞèÒªÀ¨ºÅ" << endl;
+	cout << " â‘¤:è¯·é€‰æ‹©æ˜¯å¦éœ€è¦æ‹¬å· " << endl;
+	cout << " 1ä»£è¡¨ä¸éœ€è¦æ‹¬å· 2ä»£è¡¨éœ€è¦æ‹¬å·" << endl;
 	cin >> brackets;
-	cout << " ¢Ş:ÇëÑ¡ÔñÊä³öĞÎÊ½ " << endl;
-	cout << " 1´ú±íÊä³öµ½ÎÄ¼ş 2´ú±í´òÓ¡»ú»ò´òÓ¡µ½ÆÁÄ»" << endl;
+	cout << " â‘¥:è¯·é€‰æ‹©è¾“å‡ºå½¢å¼ " << endl;
+	cout << " 1ä»£è¡¨è¾“å‡ºåˆ°æ–‡ä»¶ 2ä»£è¡¨æ‰“å°æœºæˆ–æ‰“å°åˆ°å±å¹•" << endl;
 	cin >> outputform;
 	if (outputform == 1)
 	{
-		outfile.open("myfile.txt");//Êı¾İĞ´ÈëÎÄ¼ş
+		outfile.open("myfile.txt");//æ•°æ®å†™å…¥æ–‡ä»¶
 	}
 	if (decimal == 1)
 	{
-		srand(time(NULL));//ÉèÖÃÒ»¸öËæ»úÖÖ×Ó£¬Ã¿´ÎÔËĞĞ¶¼ÄÜ±£Ö¤Ëæ»úÖÖ×Ó²»Í¬
+		srand(time(NULL));//è®¾ç½®ä¸€ä¸ªéšæœºç§å­ï¼Œæ¯æ¬¡è¿è¡Œéƒ½èƒ½ä¿è¯éšæœºç§å­ä¸åŒ
 		for (int i = 0; i < numofcalculate; i++)
 		{
 			integer_Cal();
@@ -57,52 +57,52 @@ int main()
 	}
 	outfile.close();
 	cout << "********************* " << endl;
-	cout << "---¸ĞĞ»Ê¹ÓÃ´ËÏµÍ³£¬×£ÄúÑ§Ï°½ø²½---" << endl;
+	cout << "---æ„Ÿè°¢ä½¿ç”¨æ­¤ç³»ç»Ÿï¼Œç¥æ‚¨å­¦ä¹ è¿›æ­¥---" << endl;
 	return 0;
 }
-void integer_Cal()//Éú³ÉÕûÊıËÄÔòÔËËã
+void integer_Cal()//ç”Ÿæˆæ•´æ•°å››åˆ™è¿ç®—
 {
 	int a, b, c, d;
-	a = (rand() % imax) + 1;//µÃµ½Ò»¸ö1µ½imaxµÄËæ»úÊıa
-	b = (rand() % imax) + 1;//µÃµ½Ò»¸ö1µ½imaxµÄËæ»úÊıb
-	c = (rand() % imax) + 1;//µÃµ½Ò»¸ö1µ½imaxµÄËæ»úÊıc
+	a = (rand() % imax) + 1;//å¾—åˆ°ä¸€ä¸ª1åˆ°imaxçš„éšæœºæ•°a
+	b = (rand() % imax) + 1;//å¾—åˆ°ä¸€ä¸ª1åˆ°imaxçš„éšæœºæ•°b
+	c = (rand() % imax) + 1;//å¾—åˆ°ä¸€ä¸ª1åˆ°imaxçš„éšæœºæ•°c
 	int op1, op2, op3;
-	op1 = rand() % 4;//Ëæ»úµÃµ½"+" "-" "*" "/"ÖĞµÄÒ»¸ö
+	op1 = rand() % 4;//éšæœºå¾—åˆ°"+" "-" "*" "/"ä¸­çš„ä¸€ä¸ª
 	op2 = rand() % 4;
-	if (brackets == 1)//²»ĞèÒªÀ¨ºÅ
+	if (brackets == 1)//ä¸éœ€è¦æ‹¬å·
 	{
-		if (ope == 1)//Ö´ĞĞ"+"ÔËËã
+		if (ope == 1)//æ‰§è¡Œ"+"è¿ç®—
 		{
 			//f=a+b+c;
 			cout << a << "+" << b << "+" << c << "=" << endl;
 			outfile << a << "+" << b << "+" << c << "=" << endl;
 		}
-		else if (ope == 2)//Ö´ĞĞ"-"ÔËËã
+		else if (ope == 2)//æ‰§è¡Œ"-"è¿ç®—
 		{
 			cout << a << "-" << b << "-" << c << "=" << endl;
 			outfile << a << "-" << b << "-" << c << "=" << endl;
 		}
-		else if (ope == 3)//Ö´ĞĞ"*"ÔËËã
+		else if (ope == 3)//æ‰§è¡Œ"*"è¿ç®—
 		{
 			cout << a << "*" << b << "*" << c << "=" << endl;
 			outfile << a << "*" << b << "*" << c << "=" << endl;
 		}
-		else if (ope == 4)//Ö´ĞĞ"/"ÔËËã
+		else if (ope == 4)//æ‰§è¡Œ"/"è¿ç®—
 		{
 			cout << a << "/" << b << "/" << c << "=" << endl;
 			outfile << a << "/" << b << "/" << c << "=" << endl;
 		}
-		else//Ö´ĞĞ»ìºÏÔËËã
+		else//æ‰§è¡Œæ··åˆè¿ç®—
 		{
-			cout << a << op[op1] << b << op[op2] << c << "=" << endl;//Ëæ»úÉú³ÉÔËËã·ûµÄËÄÔòÔËËã
+			cout << a << op[op1] << b << op[op2] << c << "=" << endl;//éšæœºç”Ÿæˆè¿ç®—ç¬¦çš„å››åˆ™è¿ç®—
 			outfile << a << op[op1] << b << op[op2] << c << "=" << endl;
 		}
 	}
 	else
 	{
 		int k;
-		k = rand() % 2;//Ëæ»úÉú³É"0"»ò"1"
-		if (k == 0)//À¨ºÅÎ»ÖÃÔÚÇ°
+		k = rand() % 2;//éšæœºç”Ÿæˆ"0"æˆ–"1"
+		if (k == 0)//æ‹¬å·ä½ç½®åœ¨å‰
 		{
 			if (ope == 1)
 			{
@@ -130,7 +130,7 @@ void integer_Cal()//Éú³ÉÕûÊıËÄÔòÔËËã
 				outfile << "(" << a << op[op1] << b << ")" << op[op2] << c << "=" << endl;
 			}
 		}
-		else//À¨ºÅÎ»ÖÃÔÚºó
+		else//æ‹¬å·ä½ç½®åœ¨å
 		{
 			if (ope == 1)
 			{
@@ -160,7 +160,7 @@ void integer_Cal()//Éú³ÉÕûÊıËÄÔòÔËËã
 		}
 	}
 }
-void decimal_Cal()//Éú³ÉĞ¡ÊıËÄÔòÔËËã
+void decimal_Cal()//ç”Ÿæˆå°æ•°å››åˆ™è¿ç®—
 {
 	double a, b, c, d;
 	a = (double)rand() / RAND_MAX * imax + 1.0;
